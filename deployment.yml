@@ -17,5 +17,11 @@ spec:
       containers: 
       - name: simple-node
         image: snehal22/simple-node
-      ports: 
-        - containerPort: 80    
+        ports: 
+          - containerPort: 80
+      livenessProbe:
+        httpGet:
+            path: /health
+            port: 8080
+        initialDelaySeconds: 3
+        periodSeconds: 3    
